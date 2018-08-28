@@ -1,0 +1,599 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\PostSharp.6.0.26\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.6.0.26\build\PostSharp.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B91220D9-F153-4375-B430-71151DCEC9CA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PhoneBook.MvcWebUI</RootNamespace>
+    <AssemblyName>PhoneBook.MvcWebUI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7" />
+    <Reference Include="PostSharp, Version=6.0.26.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Redist.6.0.26\lib\net45\PostSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.5.1\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.5.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.5.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.5.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.5.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.5.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\global\css\components-md.css" />
+    <Content Include="assets\global\css\components-md.min.css" />
+    <Content Include="assets\global\css\components-rounded.css" />
+    <Content Include="assets\global\css\components-rounded.min.css" />
+    <Content Include="assets\global\css\components.css" />
+    <Content Include="assets\global\css\components.min.css" />
+    <Content Include="assets\global\css\plugins-md.css" />
+    <Content Include="assets\global\css\plugins-md.min.css" />
+    <Content Include="assets\global\css\plugins.css" />
+    <Content Include="assets\global\css\plugins.min.css" />
+    <Content Include="assets\global\plugins\bootstrap-hover-dropdown\bootstrap-hover-dropdown.js" />
+    <Content Include="assets\global\plugins\bootstrap-hover-dropdown\bootstrap-hover-dropdown.min.js" />
+    <Content Include="assets\global\plugins\bootstrap-switch\css\bootstrap-switch.css" />
+    <Content Include="assets\global\plugins\bootstrap-switch\css\bootstrap-switch.min.css" />
+    <Content Include="assets\global\plugins\bootstrap-switch\js\bootstrap-switch.js" />
+    <Content Include="assets\global\plugins\bootstrap-switch\js\bootstrap-switch.min.js" />
+    <Content Include="assets\global\plugins\bootstrap\css\bootstrap.css" />
+    <Content Include="assets\global\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\global\plugins\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\global\plugins\bootstrap\js\bootstrap.js" />
+    <Content Include="assets\global\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\global\plugins\counterup\jquery.counterup.js" />
+    <Content Include="assets\global\plugins\counterup\jquery.counterup.min.js" />
+    <Content Include="assets\global\plugins\counterup\jquery.waypoints.min.js" />
+    <Content Include="assets\global\plugins\font-awesome\css\font-awesome.css" />
+    <Content Include="assets\global\plugins\font-awesome\css\font-awesome.min.css" />
+    <Content Include="assets\global\plugins\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\global\plugins\jquery-slimscroll\jquery.slimscroll.js" />
+    <Content Include="assets\global\plugins\jquery-slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="assets\global\plugins\jquery.blockui.min.js" />
+    <Content Include="assets\global\plugins\jquery.min.js" />
+    <Content Include="assets\global\plugins\jquery.sparkline.min.js" />
+    <Content Include="assets\global\plugins\js.cookie.min.js" />
+    <Content Include="assets\global\plugins\mapplic\apartment.html" />
+    <Content Include="assets\global\plugins\mapplic\australia.html" />
+    <Content Include="assets\global\plugins\mapplic\brazil.html" />
+    <Content Include="assets\global\plugins\mapplic\canada.html" />
+    <Content Include="assets\global\plugins\mapplic\china.html" />
+    <Content Include="assets\global\plugins\mapplic\continents.html" />
+    <Content Include="assets\global\plugins\mapplic\css\font-awesome.css" />
+    <Content Include="assets\global\plugins\mapplic\css\map.css" />
+    <Content Include="assets\global\plugins\mapplic\css\style.css" />
+    <Content Include="assets\global\plugins\mapplic\europe.html" />
+    <Content Include="assets\global\plugins\mapplic\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\global\plugins\mapplic\france.html" />
+    <Content Include="assets\global\plugins\mapplic\germany.html" />
+    <Content Include="assets\global\plugins\mapplic\images\apartment\lower-small.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\apartment\lower.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\apartment\upper-small.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\apartment\upper.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\background.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\browser.png" />
+    <Content Include="assets\global\plugins\mapplic\images\button-divider.png" />
+    <Content Include="assets\global\plugins\mapplic\images\cart.png" />
+    <Content Include="assets\global\plugins\mapplic\images\cloth.png" />
+    <Content Include="assets\global\plugins\mapplic\images\food.png" />
+    <Content Include="assets\global\plugins\mapplic\images\health.png" />
+    <Content Include="assets\global\plugins\mapplic\images\hq.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\icon-browser.png" />
+    <Content Include="assets\global\plugins\mapplic\images\icon-landmark.png" />
+    <Content Include="assets\global\plugins\mapplic\images\icon-layer.png" />
+    <Content Include="assets\global\plugins\mapplic\images\icon-link.png" />
+    <Content Include="assets\global\plugins\mapplic\images\icon-mobile.png" />
+    <Content Include="assets\global\plugins\mapplic\images\icon-responsive.png" />
+    <Content Include="assets\global\plugins\mapplic\images\logo.png" />
+    <Content Include="assets\global\plugins\mapplic\images\mail.png" />
+    <Content Include="assets\global\plugins\mapplic\images\mall\mall-ground-mini.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\mall\mall-ground.svg" />
+    <Content Include="assets\global\plugins\mapplic\images\mall\mall-level1-mini.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\mall\mall-level1.svg" />
+    <Content Include="assets\global\plugins\mapplic\images\mall\mall-underground-mini.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\mall\mall-underground.svg" />
+    <Content Include="assets\global\plugins\mapplic\images\misc.png" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\amc.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\applebees.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\att.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\belk.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\cvs.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\gap.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\hm.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\jcpenney.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\kfc.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\macys.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\mcdonalds.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\oldnavy.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\petco.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\pizzahut.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\pullbear.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\sears.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\sephora.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\sportchek.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\starbucks.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\subway.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\walgreens.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\thumbs\zara.jpg" />
+    <Content Include="assets\global\plugins\mapplic\images\window.png" />
+    <Content Include="assets\global\plugins\mapplic\images\wordpress.png" />
+    <Content Include="assets\global\plugins\mapplic\images\world\world.svg" />
+    <Content Include="assets\global\plugins\mapplic\images\wp.png" />
+    <Content Include="assets\global\plugins\mapplic\index.html" />
+    <Content Include="assets\global\plugins\mapplic\italy.html" />
+    <Content Include="assets\global\plugins\mapplic\js\hammer.min.js" />
+    <Content Include="assets\global\plugins\mapplic\js\html5shiv.js" />
+    <Content Include="assets\global\plugins\mapplic\js\jquery.easing.js" />
+    <Content Include="assets\global\plugins\mapplic\js\jquery.min.js" />
+    <Content Include="assets\global\plugins\mapplic\js\jquery.mousewheel.js" />
+    <Content Include="assets\global\plugins\mapplic\js\smoothscroll.js" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\alpha20.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\alpha50.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\arrow-down%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\arrow-down.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\arrow-up%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\arrow-up.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\closedhand.cur" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\cross%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\cross-light%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\cross-light.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\cross.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\error-icon.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\fullscreen-exit.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\fullscreen.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\loader.gif" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\minus%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\minus.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\openhand.cur" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-blue%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-blue-large%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-blue-large.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-blue.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-filled.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-green%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-green-large%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-green-large.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-green.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-large%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-large.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-orange%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-orange-large%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-orange-large.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-orange.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-purple%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-purple-large%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-purple-large.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-purple.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-white%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-white-large%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-white.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-yellow%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-yellow-large%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-yellow-large.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin-yellow.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\pin.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\plus%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\plus.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\reset%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\reset-light.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\reset.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\target.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\viewer%402x.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\images\viewer.png" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\mapplic-ie.css" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\mapplic.css" />
+    <Content Include="assets\global\plugins\mapplic\mapplic\mapplic.js" />
+    <Content Include="assets\global\plugins\mapplic\maps\australia.svg" />
+    <Content Include="assets\global\plugins\mapplic\maps\brazil-mini.jpg" />
+    <Content Include="assets\global\plugins\mapplic\maps\brazil.svg" />
+    <Content Include="assets\global\plugins\mapplic\maps\canada.svg" />
+    <Content Include="assets\global\plugins\mapplic\maps\china-mini.jpg" />
+    <Content Include="assets\global\plugins\mapplic\maps\china.svg" />
+    <Content Include="assets\global\plugins\mapplic\maps\england.svg" />
+    <Content Include="assets\global\plugins\mapplic\maps\europe-mini.jpg" />
+    <Content Include="assets\global\plugins\mapplic\maps\europe.svg" />
+    <Content Include="assets\global\plugins\mapplic\maps\france-mini.jpg" />
+    <Content Include="assets\global\plugins\mapplic\maps\france.svg" />
+    <Content Include="assets\global\plugins\mapplic\maps\germany-mini.jpg" />
+    <Content Include="assets\global\plugins\mapplic\maps\germany.svg" />
+    <Content Include="assets\global\plugins\mapplic\maps\italy.svg" />
+    <Content Include="assets\global\plugins\mapplic\maps\russia-mini.jpg" />
+    <Content Include="assets\global\plugins\mapplic\maps\russia.svg" />
+    <Content Include="assets\global\plugins\mapplic\maps\switzerland-mini.jpg" />
+    <Content Include="assets\global\plugins\mapplic\maps\switzerland.svg" />
+    <Content Include="assets\global\plugins\mapplic\maps\uk.svg" />
+    <Content Include="assets\global\plugins\mapplic\maps\usa-mini.jpg" />
+    <Content Include="assets\global\plugins\mapplic\maps\usa.svg" />
+    <Content Include="assets\global\plugins\mapplic\maps\world-continents.svg" />
+    <Content Include="assets\global\plugins\mapplic\maps\world.svg" />
+    <Content Include="assets\global\plugins\mapplic\russia.html" />
+    <Content Include="assets\global\plugins\mapplic\switzerland.html" />
+    <Content Include="assets\global\plugins\mapplic\uk.html" />
+    <Content Include="assets\global\plugins\mapplic\usa.html" />
+    <Content Include="assets\global\plugins\mapplic\world.html" />
+    <Content Include="assets\global\plugins\morris\examples\area-as-line.html" />
+    <Content Include="assets\global\plugins\morris\examples\area.html" />
+    <Content Include="assets\global\plugins\morris\examples\bar-colors.html" />
+    <Content Include="assets\global\plugins\morris\examples\bar-no-axes.html" />
+    <Content Include="assets\global\plugins\morris\examples\bar.html" />
+    <Content Include="assets\global\plugins\morris\examples\days.html" />
+    <Content Include="assets\global\plugins\morris\examples\decimal-custom-hover.html" />
+    <Content Include="assets\global\plugins\morris\examples\diagonal-xlabels-bar.html" />
+    <Content Include="assets\global\plugins\morris\examples\diagonal-xlabels.html" />
+    <Content Include="assets\global\plugins\morris\examples\donut-colors.html" />
+    <Content Include="assets\global\plugins\morris\examples\donut-formatter.html" />
+    <Content Include="assets\global\plugins\morris\examples\donut.html" />
+    <Content Include="assets\global\plugins\morris\examples\dst.html" />
+    <Content Include="assets\global\plugins\morris\examples\events.html" />
+    <Content Include="assets\global\plugins\morris\examples\goals.html" />
+    <Content Include="assets\global\plugins\morris\examples\lib\example.css" />
+    <Content Include="assets\global\plugins\morris\examples\lib\example.js" />
+    <Content Include="assets\global\plugins\morris\examples\months-no-smooth.html" />
+    <Content Include="assets\global\plugins\morris\examples\negative.html" />
+    <Content Include="assets\global\plugins\morris\examples\no-grid.html" />
+    <Content Include="assets\global\plugins\morris\examples\non-continuous.html" />
+    <Content Include="assets\global\plugins\morris\examples\non-date.html" />
+    <Content Include="assets\global\plugins\morris\examples\quarters.html" />
+    <Content Include="assets\global\plugins\morris\examples\resize.html" />
+    <Content Include="assets\global\plugins\morris\examples\stacked_bars.html" />
+    <Content Include="assets\global\plugins\morris\examples\timestamps.html" />
+    <Content Include="assets\global\plugins\morris\examples\updating.html" />
+    <Content Include="assets\global\plugins\morris\examples\weeks.html" />
+    <Content Include="assets\global\plugins\morris\examples\years.html" />
+    <Content Include="assets\global\plugins\morris\examples\_template.html" />
+    <Content Include="assets\global\plugins\morris\morris.css" />
+    <Content Include="assets\global\plugins\morris\morris.js" />
+    <Content Include="assets\global\plugins\morris\morris.min.js" />
+    <Content Include="assets\global\plugins\morris\raphael-min.js" />
+    <Content Include="assets\global\plugins\morris\spec\specs.html" />
+    <Content Include="assets\global\plugins\morris\spec\viz\examples.js" />
+    <Content Include="assets\global\plugins\morris\spec\viz\exemplary\area0.png" />
+    <Content Include="assets\global\plugins\morris\spec\viz\exemplary\bar0.png" />
+    <Content Include="assets\global\plugins\morris\spec\viz\exemplary\line0.png" />
+    <Content Include="assets\global\plugins\morris\spec\viz\exemplary\stacked_bar0.png" />
+    <Content Include="assets\global\plugins\morris\spec\viz\test.html" />
+    <Content Include="assets\global\plugins\morris\spec\viz\visual_specs.js" />
+    <Content Include="assets\global\plugins\simple-line-icons\fonts\Simple-Line-Icons.dev.svg" />
+    <Content Include="assets\global\plugins\simple-line-icons\fonts\Simple-Line-Icons.svg" />
+    <Content Include="assets\global\plugins\simple-line-icons\icons-lte-ie7.js" />
+    <Content Include="assets\global\plugins\simple-line-icons\License.txt" />
+    <Content Include="assets\global\plugins\simple-line-icons\Readme.txt" />
+    <Content Include="assets\global\plugins\simple-line-icons\simple-line-icons.css" />
+    <Content Include="assets\global\plugins\simple-line-icons\simple-line-icons.min.css" />
+    <Content Include="assets\global\scripts\app.js" />
+    <Content Include="assets\global\scripts\app.min.js" />
+    <Content Include="assets\global\scripts\datatable.js" />
+    <Content Include="assets\global\scripts\datatable.min.js" />
+    <Content Include="assets\layouts\global\scripts\cookie-consent.js" />
+    <Content Include="assets\layouts\global\scripts\cookie-consent.min.js" />
+    <Content Include="assets\layouts\global\scripts\hor-timeline.js" />
+    <Content Include="assets\layouts\global\scripts\hor-timeline.min.js" />
+    <Content Include="assets\layouts\global\scripts\quick-sidebar.js" />
+    <Content Include="assets\layouts\global\scripts\quick-sidebar.min.js" />
+    <Content Include="assets\layouts\layout7\css\custom.css" />
+    <Content Include="assets\layouts\layout7\css\custom.min.css" />
+    <Content Include="assets\layouts\layout7\css\layout.css" />
+    <Content Include="assets\layouts\layout7\css\layout.min.css" />
+    <Content Include="assets\layouts\layout7\img\Admin.png" />
+    <Content Include="assets\layouts\layout7\img\logo.png" />
+    <Content Include="assets\layouts\layout7\img\m_toggler.png" />
+    <Content Include="assets\layouts\layout7\scripts\layout.js" />
+    <Content Include="assets\layouts\layout7\scripts\layout.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\layouts\layout7\img\Thumbs.db" />
+    <Content Include="assets\global\plugins\bootstrap-switch\LICENSE" />
+    <Content Include="assets\global\plugins\bootstrap-switch\README.md" />
+    <Content Include="assets\global\plugins\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\global\plugins\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\global\plugins\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\global\plugins\bootstrap\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="assets\global\plugins\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\global\plugins\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\global\plugins\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\global\plugins\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\global\plugins\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="assets\global\plugins\simple-line-icons\fonts\Simple-Line-Icons.eot" />
+    <Content Include="assets\global\plugins\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="assets\global\plugins\simple-line-icons\fonts\Simple-Line-Icons.woff" />
+    <Content Include="assets\global\plugins\morris\less\morris.core.less" />
+    <Content Include="assets\global\plugins\morris\lib\morris.area.coffee" />
+    <Content Include="assets\global\plugins\morris\lib\morris.bar.coffee" />
+    <Content Include="assets\global\plugins\morris\lib\morris.coffee" />
+    <Content Include="assets\global\plugins\morris\lib\morris.donut.coffee" />
+    <Content Include="assets\global\plugins\morris\lib\morris.grid.coffee" />
+    <Content Include="assets\global\plugins\morris\lib\morris.hover.coffee" />
+    <Content Include="assets\global\plugins\morris\lib\morris.line.coffee" />
+    <Content Include="assets\global\plugins\morris\README.md" />
+    <Content Include="assets\global\plugins\morris\spec\lib\area\area_spec.coffee" />
+    <Content Include="assets\global\plugins\morris\spec\lib\bar\bar_spec.coffee" />
+    <Content Include="assets\global\plugins\morris\spec\lib\bar\colours.coffee" />
+    <Content Include="assets\global\plugins\morris\spec\lib\commas_spec.coffee" />
+    <Content Include="assets\global\plugins\morris\spec\lib\donut\donut_spec.coffee" />
+    <Content Include="assets\global\plugins\morris\spec\lib\grid\auto_grid_lines_spec.coffee" />
+    <Content Include="assets\global\plugins\morris\spec\lib\grid\set_data_spec.coffee" />
+    <Content Include="assets\global\plugins\morris\spec\lib\grid\y_label_format_spec.coffee" />
+    <Content Include="assets\global\plugins\morris\spec\lib\hover_spec.coffee" />
+    <Content Include="assets\global\plugins\morris\spec\lib\label_series_spec.coffee" />
+    <Content Include="assets\global\plugins\morris\spec\lib\line\line_spec.coffee" />
+    <Content Include="assets\global\plugins\morris\spec\lib\pad_spec.coffee" />
+    <Content Include="assets\global\plugins\morris\spec\lib\parse_time_spec.coffee" />
+    <Content Include="assets\global\plugins\morris\spec\support\placeholder.coffee" />
+    <Content Include="assets\global\plugins\morris\spec\viz\run.sh" />
+    <Content Include="assets\global\plugins\mapplic\apartment.json" />
+    <Content Include="assets\global\plugins\mapplic\australia.json" />
+    <Content Include="assets\global\plugins\mapplic\brazil.json" />
+    <Content Include="assets\global\plugins\mapplic\canada.json" />
+    <Content Include="assets\global\plugins\mapplic\china.json" />
+    <Content Include="assets\global\plugins\mapplic\continents.json" />
+    <Content Include="assets\global\plugins\mapplic\europe.json" />
+    <Content Include="assets\global\plugins\mapplic\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\global\plugins\mapplic\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\global\plugins\mapplic\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\global\plugins\mapplic\fonts\FontAwesome.otf" />
+    <Content Include="assets\global\plugins\mapplic\france.json" />
+    <Content Include="assets\global\plugins\mapplic\germany.json" />
+    <Content Include="assets\global\plugins\mapplic\italy.json" />
+    <Content Include="assets\global\plugins\mapplic\mall.json" />
+    <Content Include="assets\global\plugins\mapplic\russia.json" />
+    <Content Include="assets\global\plugins\mapplic\switzerland.json" />
+    <Content Include="assets\global\plugins\mapplic\uk.json" />
+    <Content Include="assets\global\plugins\mapplic\usa.json" />
+    <Content Include="assets\global\plugins\mapplic\world.json" />
+    <Content Include="assets\global\plugins\bootstrap-hover-dropdown\LICENSE" />
+    <Content Include="assets\global\plugins\bootstrap-hover-dropdown\README.md" />
+    <Content Include="assets\global\plugins\counterup\LICENSE" />
+    <Content Include="assets\global\plugins\counterup\README.md" />
+    <Content Include="assets\global\plugins\jquery-slimscroll\README.md" />
+    <Content Include="assets\global\plugins\jquery-slimscroll\slimScroll.jquery.json" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Employee\Details.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PhoneBook.Business\PhoneBook.Business.csproj">
+      <Project>{82721c3b-8691-4a7d-9b99-603b577701f0}</Project>
+      <Name>PhoneBook.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhoneBook.Core\PhoneBook.Core.csproj">
+      <Project>{6fa1f015-afae-495b-bd70-680518959f89}</Project>
+      <Name>PhoneBook.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PhoneBook.DataAccess\PhoneBook.DataAccess.csproj">
+      <Project>{8fde7f6e-cb89-429e-bef4-c81dc69c8389}</Project>
+      <Name>PhoneBook.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50396</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50396/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.6.0.26\build\PostSharp.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.0.26\build\PostSharp.props'))" />
+    <Error Condition="!Exists('..\packages\PostSharp.6.0.26\build\PostSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PostSharp.6.0.26\build\PostSharp.targets'))" />
+  </Target>
+  <Import Project="..\packages\PostSharp.6.0.26\build\PostSharp.targets" Condition="Exists('..\packages\PostSharp.6.0.26\build\PostSharp.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

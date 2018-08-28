@@ -1,0 +1,84 @@
+﻿@model PhoneBook.MvcWebUI.Models.EmployeeViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div>
+
+    <div class="breadcrumbs">
+        <div class="container-fluid">
+            <h2 class="breadcrumbs-title">Employee Details</h2>
+        </div>
+    </div>  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employees.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employees.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employees.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employees.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employees.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employees.PhoneNumber)
+        </dd>
+        @if (Model.Employees.Title != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Employees.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Employees.Title)
+            </dd>
+        }
+
+        @if (Model.Employees.ManagerId != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.ManagerName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ManagerName)
+            </dd>
+        }
+        
+        @if (Model.Employees.DepartmentId != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.DepartmentName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DepartmentName)
+            </dd>
+        }
+
+
+    </dl>
+</div>
+<p>
+    @if (Session["Account"] != null)
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Employees.Id })
+    }
+    | @Html.ActionLink("Back to List", "Index")
+</p>

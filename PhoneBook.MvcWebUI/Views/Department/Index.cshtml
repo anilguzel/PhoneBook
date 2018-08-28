@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PhoneBook.Core.Entities.Concrete.Department>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="breadcrumbs">
+    <div class="container-fluid">
+        <h2 class="breadcrumbs-title">Departments</h2>
+    </div>
+</div>
+<h2></h2>
+
+@if (Session["Account"] != null)
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            @if (Session["Account"] != null)
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            }
+        </tr>
+    }
+
+</table>
